@@ -52,7 +52,7 @@ nilai9.pack()
 nilai9 = Entry(Aplikasi)
 nilai9.pack()
 
-nilai10 = Label(Aplikasi, text="Nilai Mata 10:")
+nilai10 = Label(Aplikasi, text="Nilai 10:")
 nilai10.pack()
 nilai10 = Entry(Aplikasi)
 nilai10.pack()
