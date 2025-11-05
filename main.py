@@ -1,4 +1,5 @@
 from tkinter import * 
+from tkinter import messagebox
  
 Aplikasi = Tk()
 Aplikasi.title("Prediksi Prodi")
@@ -56,11 +57,21 @@ nilai10.pack()
 nilai10 = Entry(Aplikasi)
 nilai10.pack()
 
-def tampilkan_hasil():
-    hasil.config(text="Hasil Prediksi: Teknologi Informasi")
+list_entries = [nilai1, nilai2, nilai3, nilai4, nilai5, nilai7, nilai8, nilai9, nilai10]
+
+def hasil_prediksi():
+    try:
+        for i, entry in enumerate(list_entries):  
+            nilai = int(entry.get()) 
+            if not (0 <= nilai <= 100):
+                raise ValueError(f"Nilai Mata Pelajaran {i+1} harus berupa angka antara 0-100")
+            
+        hasil.config(text="Prediksi Prodi: Teknologi Informasi")
+    except ValueError as ve:
+        messagebox.showerror("Error", f"Kesalahan: {ve}")
 
 
-prediksi = Button(Aplikasi, text="Hasil Prediksi", command=tampilkan_hasil)
+prediksi = Button(Aplikasi, text="Hasil Prediksi", command=hasil_prediksi)
 prediksi.pack()
 
 hasil = Label(Aplikasi, text="Hasil Prediksi:")
